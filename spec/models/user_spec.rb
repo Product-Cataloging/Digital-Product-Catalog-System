@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
   attributes = [
     { username: %i[presence uniqueness] },
     { email: %i[presence uniqueness] },
-    { password_digest: :presence },
+    { password: :presence },
     { user_type: :presence },
     { is_active: :presence },
   ]
