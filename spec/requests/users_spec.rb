@@ -7,7 +7,7 @@ RSpec.describe "Users", type: :request do
     { 
     username: FFaker::Name.name,
     email: FFaker::Internet.email,
-    password_digest: FFaker::Code.npi,
+    password: FFaker::Code.npi,
     user_type: FFaker::Lorem.word,
     is_active: true 
 
@@ -19,7 +19,7 @@ RSpec.describe "Users", type: :request do
     { 
     username: nil,
     email: FFaker::Internet.email,
-    password_digest: nil,
+    password: nil,
     user_type: nil,
     is_active: true  
    } 
@@ -30,6 +30,27 @@ RSpec.describe "Users", type: :request do
     username: FFaker::Name.name
     } 
   end
+
+    describe 'POST #login' do
+      it 'returns token when a valid email and password provided' do
+          user = create(:user)
+          
+          post '/login', params: { email: user.email, password: user.password }
+          result = JSON(response.body)
+          expect(result['success']).to be_truthy
+          expect(result['jwt']).to_not be nil
+      end
+
+      it 'returns error message when invalid email or password provided' do
+          user = create(:user)
+          post '/login', params: { email: 'test@gmail.com', password: user.password }
+          result = JSON(response.body)
+          expect(result['success']).to be_falsey
+          expect(result['errors'][0]).to eq('Invalid username or password !')
+      end
+    end
+
+    
 
 
 end
