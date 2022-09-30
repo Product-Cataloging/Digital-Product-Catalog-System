@@ -1,0 +1,4 @@
+RAILS_ENV=development
+DATABASE_HOST=db
+HOST_URL=localhost
+HOST_PORT=3003
