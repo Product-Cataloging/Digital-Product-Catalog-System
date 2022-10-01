@@ -87,6 +87,4 @@ test:
 #
 production:
   <<: *default
-  database: DPCS_production
-  username: DPCS
-  password: <%= ENV["DPCS_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
