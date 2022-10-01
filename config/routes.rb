@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post '/login', controller: :users, action: :login
   post '/sign_up', controller: :users, action: :create
   resources :addresses
+  resources :contact_informations
 end
