@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :contact_informations
   resources :addresses
   resources :customers, only: [:create, :update, :show]
+  resources :currencies
+  resources :unit_of_measures
 end
