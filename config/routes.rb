@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :contact_informations
   resources :addresses
   resources :currencies
+  resources :unit_of_measures
 end
