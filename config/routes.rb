@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
   post '/login', controller: :users, action: :login
   post '/sign_up', controller: :users, action: :create
-  resources :addresses
   resources :contact_informations
   resources :addresses
 end
