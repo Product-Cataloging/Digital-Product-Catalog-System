@@ -1,4 +1,4 @@
 class Currency < ApplicationRecord
-    validates :name,:alias, presence:true
+    validates :name,:aliass, presence:true
     
 end
