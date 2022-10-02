@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :customers, only: [:create, :update, :show]
   resources :currencies
   resources :unit_of_measures
+  resources :categories
 end
