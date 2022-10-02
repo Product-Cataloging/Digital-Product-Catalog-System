@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :unit_of_measures
   resources :categories
   resources :products
+  resources :suppliers
 end
