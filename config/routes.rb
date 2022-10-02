@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :currencies
   resources :unit_of_measures
   resources :categories
+  resources :products
 end
