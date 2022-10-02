@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/sign_up', controller: :users, action: :create
   resources :contact_informations
   resources :addresses
+  resources :customers, only: [:create, :update, :show]
   resources :currencies
   resources :unit_of_measures
 end
