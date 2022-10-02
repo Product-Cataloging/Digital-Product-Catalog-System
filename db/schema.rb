@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_02_094155) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_02_095445) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,6 +68,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_02_094155) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "product_items", force: :cascade do |t|
+    t.string "color", null: false
+    t.integer "size", null: false
+    t.bigint "unit_of_measure_id", null: false
+    t.float "price", null: false
+    t.bigint "product_id", null: false
+    t.bigint "currency_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["currency_id"], name: "index_product_items_on_currency_id"
+    t.index ["product_id"], name: "index_product_items_on_product_id"
+    t.index ["unit_of_measure_id"], name: "index_product_items_on_unit_of_measure_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
@@ -110,6 +124,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_02_094155) do
   add_foreign_key "customers", "addresses"
   add_foreign_key "customers", "contact_informations"
   add_foreign_key "customers", "users"
+  add_foreign_key "product_items", "currencies"
+  add_foreign_key "product_items", "products"
+  add_foreign_key "product_items", "unit_of_measures"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "suppliers"
   add_foreign_key "suppliers", "addresses"
