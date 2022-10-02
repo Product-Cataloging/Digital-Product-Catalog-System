@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     def login
         user = User.find_by_email(params[:email])
         if User&.find_by_email(params[:email]) && user.authenticate(params[:password])
-          token = JsonWebToken.encode({ id: user.id, username: user.username, email: user.email})
+          token = JsonWebToken.encode({ id: user.id, username: user.username, email: user.email, user_type: user.user_type})
           render json: { success: true, jwt: token }
         else
           render json: { success: false, errors: ['Invalid username or password !'] }
