@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :products
   resources :suppliers
   resources :product_items
+  post '/search', controller: :search, action: :search
 end
