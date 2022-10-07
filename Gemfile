@@ -8,6 +8,7 @@ gem "rails", "~> 7.0.4"
 gem 'active_model_serializers'
 gem 'bcrypt'
 gem 'jwt'
+gem 'ancestry'
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
