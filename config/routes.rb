@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   resources :customers, only: [:create, :update, :show]
   resources :currencies
   resources :unit_of_measures
-  resources :categories
+  resources :categories, only: [:show, :create, :update]
   resources :products
   resources :suppliers
   resources :product_items
   post '/search', controller: :search, action: :search
+  get '/category', controller: :categories, action: :index
 end
