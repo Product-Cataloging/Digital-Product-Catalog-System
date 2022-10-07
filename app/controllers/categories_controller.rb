@@ -3,12 +3,14 @@ class CategoriesController < ApplicationController
 
     def index
         result = []
-        @categories  = Category.where(ancestry: nil)
         
-        @categories.each do |category|
-            result.push({parent: category, children: category.children}) 
+        Category.where(ancestry: nil).each do |category|
+            result.push({id: category.id, 
+                         name: category.name,
+                         description: category.description,
+                         children: category.descendants
+                        }) 
         end
-
         render json: {success: true, data: result}        
     end
 
