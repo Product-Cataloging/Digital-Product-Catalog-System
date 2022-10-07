@@ -6,8 +6,7 @@ class CategoriesController < ApplicationController
         @categories  = Category.where(ancestry: nil)
         
         @categories.each do |category|
-            child = Category.where(ancestry: category.id)
-            result.push({parent: category, children: child}) 
+            result.push({parent: category, children: category.children}) 
         end
 
         render json: {success: true, data: result}        
@@ -15,6 +14,6 @@ class CategoriesController < ApplicationController
 
     private
     def model_params
-        params.require(:payload).permit(:name, :description)
+        params.require(:payload).permit(:name, :description, :ancestry)
     end
 end

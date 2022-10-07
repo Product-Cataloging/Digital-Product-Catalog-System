@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Categories", type: :request do
-  include_examples('request_shared_spec', 'categories', 3, [:index])
+  include_examples('request_shared_spec', 'categories', 4, [:index])
 
   let(:valid_attributes) do 
     { 
@@ -40,7 +40,6 @@ RSpec.describe "Categories", type: :request do
 
       get '/category'
       result = JSON(response.body)
-      
       expect(result['success']).to be_truthy
       expect(result['data'].count).to eq(2)
       expect(result['data'][0]['children'].count).to eq(3) 
