@@ -14,6 +14,12 @@ class CategoriesController < ApplicationController
         render json: {success: true, data: result}        
     end
 
+    def items
+        items=Product.where(category_id: params[:id])
+        render json:{success: true, data: items}
+
+    end
+
     private
     def model_params
         params.require(:payload).permit(:name, :description, :ancestry)
