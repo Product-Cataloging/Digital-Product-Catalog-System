@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_113231) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_08_081913) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -97,12 +97,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_113231) do
 
   create_table "suppliers", force: :cascade do |t|
     t.string "company_name", null: false
-    t.bigint "address_id", null: false
-    t.bigint "contact_information_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["address_id"], name: "index_suppliers_on_address_id"
-    t.index ["contact_information_id"], name: "index_suppliers_on_contact_information_id"
+    t.string "address_line", null: false
+    t.string "primary_phone_number", null: false
+    t.string "email", null: false
+    t.string "postal_code"
+    t.string "fax"
   end
 
   create_table "unit_of_measures", force: :cascade do |t|
@@ -130,6 +131,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_113231) do
   add_foreign_key "product_items", "unit_of_measures"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "suppliers"
-  add_foreign_key "suppliers", "addresses"
-  add_foreign_key "suppliers", "contact_informations"
 end
