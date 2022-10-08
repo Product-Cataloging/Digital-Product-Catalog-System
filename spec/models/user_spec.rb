@@ -10,4 +10,6 @@ RSpec.describe User, type: :model do
   ]
 
   include_examples('model_shared_spec', :user, attributes)
+  it { should validate_inclusion_of(:user_type).in_array(User::USER_TYPES) }
+  
 end

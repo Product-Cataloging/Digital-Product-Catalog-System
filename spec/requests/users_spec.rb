@@ -8,7 +8,7 @@ RSpec.describe "Users", type: :request do
     username: FFaker::Name.name,
     email: FFaker::Internet.email,
     password: FFaker::Code.npi,
-    user_type: FFaker::Lorem.word,
+    user_type: User::OPERATOR,
     is_active: true 
 
    } 
