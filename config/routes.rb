@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :product_items
   post '/search', controller: :search, action: :search
   get '/category', controller: :categories, action: :index
+  get '/product/items', controller: :products, action: :items
 end
