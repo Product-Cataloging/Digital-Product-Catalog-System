@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_08_081913) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_08_143424) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,15 +39,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_08_081913) do
 
   create_table "product_items", force: :cascade do |t|
     t.string "color", null: false
-    t.integer "size", null: false
+    t.string "dimension", null: false
     t.bigint "unit_of_measure_id", null: false
     t.float "price", null: false
     t.bigint "product_id", null: false
     t.bigint "currency_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "material", null: false
+    t.string "capacity"
+    t.bigint "supplier_id"
     t.index ["currency_id"], name: "index_product_items_on_currency_id"
     t.index ["product_id"], name: "index_product_items_on_product_id"
+    t.index ["supplier_id"], name: "index_product_items_on_supplier_id"
     t.index ["unit_of_measure_id"], name: "index_product_items_on_unit_of_measure_id"
   end
 
@@ -55,12 +59,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_08_081913) do
     t.string "name", null: false
     t.text "description"
     t.bigint "category_id", null: false
-    t.bigint "supplier_id", null: false
-    t.string "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_url"
+    t.string "brand"
     t.index ["category_id"], name: "index_products_on_category_id"
-    t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
   create_table "suppliers", force: :cascade do |t|
@@ -85,7 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_08_081913) do
     t.string "username", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
-    t.string "user_type", default: "Customer", null: false
+    t.string "user_type", default: "Operator", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -93,7 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_08_081913) do
 
   add_foreign_key "product_items", "currencies"
   add_foreign_key "product_items", "products"
+  add_foreign_key "product_items", "suppliers"
   add_foreign_key "product_items", "unit_of_measures"
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "suppliers"
 end

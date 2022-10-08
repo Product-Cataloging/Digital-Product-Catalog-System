@@ -1,7 +1,11 @@
 class Product < ApplicationRecord
   belongs_to :category
-  belongs_to :supplier
+ 
 
-  validates :name , presence: true
+  delegate(:name, to: :category, prefix: true)
+
+  
+
+  validates :name , :brand, presence: true
 
 end

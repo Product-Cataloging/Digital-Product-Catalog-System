@@ -3,7 +3,7 @@ FactoryBot.define do
     name { FFaker::Name.name }
     description { FFaker::Lorem.paragraph }
     category factory: :category
-    supplier factory: :supplier
-    tag { FFaker::Lorem.word }
+    image_url { FFaker::Lorem.word }
+    brand { FFaker::Lorem.word }
   end
 end
