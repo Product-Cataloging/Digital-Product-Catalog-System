@@ -85,7 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_08_081913) do
     t.string "username", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
-    t.string "user_type", default: "Customer", null: false
+    t.string "user_type", default: "Operator", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
