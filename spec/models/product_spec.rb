@@ -4,7 +4,6 @@ RSpec.describe Product, type: :model do
   attributes = [
     { name: :presence },
     { category: :belong_to },
-    { supplier: :belong_to },
     { brand: :presence}
   ]
 

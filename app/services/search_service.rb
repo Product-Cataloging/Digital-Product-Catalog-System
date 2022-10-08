@@ -19,14 +19,7 @@ class SearchService
             end
         end
 
-        for i in res2
-            samaa2 = Product.where(supplier_id: i.id)
-            for y in samaa2
-                if search_res.exclude?(y)
-                    search_res.push(y)
-                end
-            end
-        end
+        
 
         for i in res3
             if search_res.exclude?(i)

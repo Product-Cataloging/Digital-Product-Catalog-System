@@ -4,6 +4,6 @@ class ProductsController < ApplicationController
     private 
 
     def model_params
-        params.require(:payload).permit(:name,:description,:category_id,:supplier_id ,:image_url, :brand)
+        params.require(:payload).permit(:name,:description,:category_id ,:image_url, :brand)
     end
 end
