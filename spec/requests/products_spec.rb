@@ -39,7 +39,6 @@ RSpec.describe "Products", type: :request do
     create(:product_item, product_id: p1.id)
     get "/product/items/#{p1.id}"
     result = JSON(response.body)
-    debugger
     expect(result['success']).to be_truthy
     expect(result['data'].count).to eq(3)
 
