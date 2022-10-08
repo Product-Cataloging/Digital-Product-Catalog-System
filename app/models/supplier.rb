@@ -1,7 +1,10 @@
 class Supplier < ApplicationRecord
-  belongs_to :address
-  belongs_to :contact_information
+ 
 
-  validates :company_name, presence: true
+  validates :company_name,:primary_phone_number, :email, :address_line, presence: true
+  validates :primary_phone_number , uniqueness: true
 
+
+
+  
 end

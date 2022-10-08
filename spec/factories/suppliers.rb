@@ -1,7 +1,12 @@
 FactoryBot.define do
   factory :supplier do
     company_name { FFaker::Lorem.word }
-    address factory: :address
-    contact_information factory: :contact_information
+  
+    address_line  {FFaker::Lorem.word} 
+    primary_phone_number {FFaker::Lorem.word}
+    email {FFaker::Lorem.word}
+    postal_code {FFaker::Lorem.word}
+    fax {FFaker::Lorem.word}
+
   end
 end
