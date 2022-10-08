@@ -32,4 +32,16 @@ RSpec.describe "Products", type: :request do
     name: FFaker::Lorem.word
     } 
   end
+  it "returns product items" do
+    p1= create(:product)
+    create(:product_item, product_id: p1.id)
+    create(:product_item, product_id: p1.id)
+    create(:product_item, product_id: p1.id)
+    get '/product/items', params: {id: p1.id}
+    result = JSON(response.body)
+    expect(result['success']).to be_truthy
+    expect(result['data'].count).to eq(3)
+
+  end
+  
 end
