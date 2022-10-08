@@ -46,6 +46,18 @@ RSpec.describe "Categories", type: :request do
     end
   end
 
+  it "returns product items" do
+    cat1 = create(:category, name: 'Kitchen', ancestry: nil)
+    create(:product, category_id: cat1.id)
+    create(:product, category_id: cat1.id)
+    create(:product, category_id: cat1.id)
+    get "/category/products/#{cat1.id}"
+    result = JSON(response.body)
+    expect(result['success']).to be_truthy
+    expect(result['data'].count).to eq(3)
+
+  end
+
   
   
 end
