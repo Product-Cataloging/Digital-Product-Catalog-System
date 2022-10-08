@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "ProductItems", type: :request do
-  include_examples('request_shared_spec', 'product_items', 14)
+  include_examples('request_shared_spec', 'product_items', 15)
 
   let(:valid_attributes) do 
     { 
@@ -13,7 +13,8 @@ RSpec.describe "ProductItems", type: :request do
       currency_id: create(:currency).id,
       material: FFaker::Lorem.word,
       supplier_id: create(:supplier).id,
-      capacity: FFaker::Lorem.word
+      capacity: FFaker::Lorem.word,
+      status: "Approved"
    } 
   end
 
@@ -28,7 +29,8 @@ RSpec.describe "ProductItems", type: :request do
       currency_id: create(:currency).id,
       material:FFaker::Lorem.word,
       supplier_id: create(:supplier).id,
-      capacity: FFaker::Lorem.word
+      capacity: FFaker::Lorem.word,
+      status: "Approved"
 
    } 
   end
