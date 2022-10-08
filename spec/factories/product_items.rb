@@ -9,6 +9,7 @@ FactoryBot.define do
     supplier factory: :supplier
     material { FFaker::Lorem.word}
     capacity { FFaker::Lorem.word}
+    status {"Approved"}
 
   end
 end
