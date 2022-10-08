@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Products", type: :request do
-  include_examples('request_shared_spec', 'products', 6)
+  include_examples('request_shared_spec', 'products', 7)
 
   let(:valid_attributes) do 
     { 
@@ -9,7 +9,10 @@ RSpec.describe "Products", type: :request do
       description: FFaker::Lorem.paragraph,
       category_id: create(:category).id,
       supplier_id: create(:supplier).id,
-      tag: FFaker::Lorem.word,
+      image_url: FFaker::Lorem.word,
+      brand: FFaker::Lorem.word
+
+
    } 
   end
 
@@ -20,7 +23,9 @@ RSpec.describe "Products", type: :request do
       description: FFaker::Lorem.paragraph,
       category_id: create(:category).id,
       supplier_id: create(:supplier).id,
-      tag: FFaker::Lorem.word,
+      image_url: FFaker::Lorem.word,
+      brand: FFaker::Lorem.word
+
    } 
   end
 
