@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
     include Common
     def items
         items=ProductItem.where(product_id: params[:id])
-        render json:{success: true, data: items}
+        render json:{success: true, data: serialize(items)}
 
     end
 
