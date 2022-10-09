@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   post '/search', controller: :search, action: :search
   get '/category', controller: :categories, action: :index
   get '/product/items/:id', controller: :products, action: :items
+  get '/product/items/admin/:id', controller: :products, action: :items_admin
   get '/category/products/:id', controller: :categories, action: :items
 end
