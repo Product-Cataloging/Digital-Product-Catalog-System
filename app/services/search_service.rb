@@ -1,33 +1,22 @@
 class SearchService
-    def initialize
+
+    def initialize(params)
+      @search = params[:search]
     end
 
-    def search_product(params)
-        search_res = []
-        @keyword = params[:search].downcase
-        res = Category.all.where("lower(name) LIKE :search", search: "#{@keyword}")
-        res2 = Supplier.all.where("lower(company_name) LIKE :search", search: "#{@keyword}")
-        res3 = Product.all.where("lower(name) LIKE :search", search: "#{@keyword}")
+    def search_prod
+        q = {category_name_or_name_i_cont_any: @search}
+        res = Product.ransack(q).result.to_a
+        q = {product_name_i_cont_any: @search}
+        res2 = ProductItem.ransack(q).result.to_a
         
-        
-        for i in res
-            samaa = Product.where(category_id: i.id)
-            for y in samaa
-                if search_res.exclude?(y)
-                    search_res.push(y)
-                end
+        for i in res2
+            if res.exclude?(i.product)
+                res.push(i.product)
             end
         end
-
         
-
-        for i in res3
-            if search_res.exclude?(i)
-                search_res.push(i)
-            end
-        end
-
-        return search_res
+        return res
     end
 
 end

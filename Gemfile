@@ -9,6 +9,7 @@ gem 'active_model_serializers'
 gem 'bcrypt'
 gem 'jwt'
 gem 'ancestry'
+gem 'ransack'
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
