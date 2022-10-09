@@ -3,7 +3,11 @@ class ProductsController < ApplicationController
     def items
         items=ProductItem.where(product_id: params[:id], status: 'Approved')
         render json:{success: true, data: serialize(items)}
+    end
 
+    def items_admin
+        items=ProductItem.where(product_id: params[:id])
+        render json:{success: true, data: serialize(items)}
     end
 
     private 
