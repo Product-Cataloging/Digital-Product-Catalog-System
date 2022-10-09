@@ -7,7 +7,7 @@ class SearchService
     def search_prod
         q = {category_name_or_name_i_cont_any: @search}
         res = Product.ransack(q).result.to_a
-        q = {supplier_name_i_cont_any: @search}
+        q = {supplier_company_name_i_cont_any: @search}
         res2 = ProductItem.ransack(q).result.to_a
         
         for i in res2
