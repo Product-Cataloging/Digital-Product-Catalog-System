@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
     include Common
     def items
-        items=ProductItem.where(product_id: params[:id])
+        items=ProductItem.where(product_id: params[:id], status: 'Approved')
         render json:{success: true, data: serialize(items)}
 
     end
