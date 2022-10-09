@@ -17,7 +17,7 @@ RSpec.describe SearchService do
         cat1f = create(:product_item, supplier_id: cat11.id)
         @service =  SearchService.new(search: cat.name)
         res = @service.search_prod()
-        expect(res.count).to eq(3)  
+        expect(res.count).to eq(4)  
     end
     
 end
