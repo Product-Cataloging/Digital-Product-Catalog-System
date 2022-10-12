@@ -4,5 +4,6 @@ FactoryBot.define do
     message { FFaker::Lorem.word }
     delivery_date { Date.today }
     sender { FFaker::Lorem.word }
+    status {Notification::UNREAD}
   end
 end
