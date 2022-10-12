@@ -33,4 +33,11 @@ RSpec.describe "QuotationRequests", type: :request do
     first_name: FFaker::Lorem.word
     } 
     end
+
+    it "creates notification when a quotation is requested" do
+      post quotation_requests_url, params: {payload: valid_attributes}
+      service = NotificationService.new(first_name: valid_attributes[:first_name], last_name: valid_attributes[:last_name]).create_notification()
+      expect(service.sender).to eq(valid_attributes[:first_name] + ' ' + valid_attributes[:last_name]) 
+    end
+    
 end
