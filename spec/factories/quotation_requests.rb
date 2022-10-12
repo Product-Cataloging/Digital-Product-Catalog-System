@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :quotation_request do
-    first_name { "MyString" }
-    last_name { "MyString" }
-    phone_number { "MyString" }
-    email { "MyString" }
-    product_name { "MyString" }
-    image_url { "MyString" }
-    description { "MyString" }
+    first_name { FFaker::Lorem.word }
+    last_name { FFaker::Lorem.word }
+    phone_number { FFaker::Lorem.word }
+    email { FFaker::Lorem.word }
+    product_name { FFaker::Lorem.word }
+    image_url { FFaker::Lorem.word }
+    description { FFaker::Lorem.word }
   end
 end
