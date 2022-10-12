@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   get '/product/items/:id', controller: :products, action: :items
   get '/product/items/admin/:id', controller: :products, action: :items_admin
   get '/category/products/:id', controller: :categories, action: :items
+  resources :quotation_requests
+  resources :notifications
+  get '/unread_notification', controller: :notifications, action: :unread_notification
 end
