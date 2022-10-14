@@ -7,14 +7,14 @@ RSpec.describe "ProductItems", type: :request do
     { 
       color: FFaker::Lorem.word,
       dimension: FFaker::Lorem.word ,
-      unit_of_measure_id: create(:unit_of_measure).id,
       price: 1.5 ,
       product_id: create(:product).id,
       currency_id: create(:currency).id,
       material: FFaker::Lorem.word,
       supplier_id: create(:supplier).id,
       capacity: FFaker::Lorem.word,
-      status: "Approved"
+      status: "Approved",
+      packaging_unit: FFaker::Lorem.word
    } 
   end
 
@@ -23,14 +23,14 @@ RSpec.describe "ProductItems", type: :request do
     { 
       color: FFaker::Lorem.word,
       dimension: nil,
-      unit_of_measure_id: create(:unit_of_measure).id,
       price: 1.5 ,
       product_id: create(:product).id,
       currency_id: create(:currency).id,
       material:FFaker::Lorem.word,
       supplier_id: create(:supplier).id,
       capacity: FFaker::Lorem.word,
-      status: "Approved"
+      status: "Approved",
+      packaging_unit: FFaker::Lorem.word
 
    } 
   end
