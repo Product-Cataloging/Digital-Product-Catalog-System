@@ -11,7 +11,8 @@ RSpec.describe "QuotationRequests", type: :request do
       email: FFaker::Internet.email,
       image_url: FFaker::Lorem.word,
       phone_number: FFaker::Lorem.word,
-      product_name: FFaker::Lorem.word
+      product_name: FFaker::Lorem.word,
+      quantity: 7
     } 
     end
 
@@ -24,7 +25,8 @@ RSpec.describe "QuotationRequests", type: :request do
       email: FFaker::Internet.email,
       image_url: FFaker::Lorem.word,
       phone_number: FFaker::Lorem.word,
-      product_name: FFaker::Lorem.word
+      product_name: FFaker::Lorem.word,
+      quantity: 7
     } 
     end
 
