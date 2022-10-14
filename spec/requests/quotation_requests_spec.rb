@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "QuotationRequests", type: :request do
-  include_examples('request_shared_spec', 'quotation_requests', 9)
+  include_examples('request_shared_spec', 'quotation_requests', 10)
 
   let(:valid_attributes) do 
     { 
@@ -12,7 +12,8 @@ RSpec.describe "QuotationRequests", type: :request do
       image_url: FFaker::Lorem.word,
       phone_number: FFaker::Lorem.word,
       product_name: FFaker::Lorem.word,
-      quantity: 7
+      quantity: 7,
+      status: QuotationRequest::REQUESTED
     } 
     end
 
@@ -26,7 +27,8 @@ RSpec.describe "QuotationRequests", type: :request do
       image_url: FFaker::Lorem.word,
       phone_number: FFaker::Lorem.word,
       product_name: FFaker::Lorem.word,
-      quantity: 7
+      quantity: 7,
+      status: QuotationRequest::REQUESTED
     } 
     end
 
