@@ -2,7 +2,6 @@ FactoryBot.define do
   factory :product_item do
     color { FFaker::Lorem.word }
     dimension { FFaker::Lorem.word}
-    unit_of_measure factory: :unit_of_measure
     price { 1.5 }
     product factory: :product
     currency factory: :currency
@@ -10,6 +9,7 @@ FactoryBot.define do
     material { FFaker::Lorem.word}
     capacity { FFaker::Lorem.word}
     status {"Approved"}
+    packaging_unit { FFaker::Lorem.word }
 
   end
 end
