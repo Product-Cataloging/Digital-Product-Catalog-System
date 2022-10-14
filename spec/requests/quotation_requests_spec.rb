@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "QuotationRequests", type: :request do
-  include_examples('request_shared_spec', 'quotation_requests', 8)
+  include_examples('request_shared_spec', 'quotation_requests', 9)
 
   let(:valid_attributes) do 
     { 
