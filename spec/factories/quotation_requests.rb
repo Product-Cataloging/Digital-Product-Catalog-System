@@ -8,5 +8,6 @@ FactoryBot.define do
     image_url { FFaker::Lorem.word }
     description { FFaker::Lorem.word }
     quantity { 7 }
+    status { QuotationRequest::STATUSES::REQUESTED }
   end
 end
