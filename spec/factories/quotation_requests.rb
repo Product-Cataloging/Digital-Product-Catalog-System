@@ -7,5 +7,7 @@ FactoryBot.define do
     product_name { FFaker::Lorem.word }
     image_url { FFaker::Lorem.word }
     description { FFaker::Lorem.word }
+    quantity { 7 }
+    status { QuotationRequest::REQUESTED }
   end
 end

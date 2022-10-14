@@ -7,9 +7,9 @@ RSpec.describe ProductItem, type: :model do
     { price: :presence },
     { product: :belong_to },
     { currency: :belong_to },
-    { unit_of_measure: :belong_to },
     { material: :presence},
-    {supplier: :belong_to}
+    { supplier: :belong_to},
+    { packaging_unit: :presence }
   ]
 
   include_examples('model_shared_spec', :product_item, attributes)

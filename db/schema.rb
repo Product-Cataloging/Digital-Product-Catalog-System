@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_12_222239) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_14_012518) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,7 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_222239) do
   create_table "product_items", force: :cascade do |t|
     t.string "color", null: false
     t.string "dimension", null: false
-    t.bigint "unit_of_measure_id", null: false
     t.float "price", null: false
     t.bigint "product_id", null: false
     t.bigint "currency_id", null: false
@@ -60,10 +59,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_222239) do
     t.string "capacity"
     t.bigint "supplier_id"
     t.string "status"
+    t.string "packaging_unit", null: false
     t.index ["currency_id"], name: "index_product_items_on_currency_id"
     t.index ["product_id"], name: "index_product_items_on_product_id"
     t.index ["supplier_id"], name: "index_product_items_on_supplier_id"
-    t.index ["unit_of_measure_id"], name: "index_product_items_on_unit_of_measure_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -87,6 +86,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_222239) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "quantity"
+    t.string "status", null: false
   end
 
   create_table "suppliers", force: :cascade do |t|
@@ -100,18 +101,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_222239) do
     t.string "fax"
   end
 
-  create_table "unit_of_measures", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "abbreviation", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
-    t.string "user_type", default: "Customer", null: false
+    t.string "user_type", default: "Operator", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -120,6 +114,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_222239) do
   add_foreign_key "product_items", "currencies"
   add_foreign_key "product_items", "products"
   add_foreign_key "product_items", "suppliers"
-  add_foreign_key "product_items", "unit_of_measures"
   add_foreign_key "products", "categories"
 end
