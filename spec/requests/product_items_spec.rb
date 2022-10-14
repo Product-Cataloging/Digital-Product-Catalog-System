@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "ProductItems", type: :request do
-  include_examples('request_shared_spec', 'product_items', 15)
+  include_examples('request_shared_spec', 'product_items', 14)
 
   let(:valid_attributes) do 
     { 
