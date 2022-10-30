@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_14_012518) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_30_105656) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,6 +73,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_012518) do
     t.datetime "updated_at", null: false
     t.string "image_url"
     t.string "brand"
+    t.string "picture"
+    t.string "dimensions"
+    t.string "conversion_factor"
+    t.string "base_unit"
+    t.string "target_unit"
+    t.string "date_valid_from"
+    t.string "expiry_date"
+    t.string "item_group"
+    t.string "weight_in_kg"
+    t.string "tax_class"
+    t.string "revenue_code"
+    t.string "color"
+    t.string "material"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

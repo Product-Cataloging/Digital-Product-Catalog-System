@@ -13,6 +13,6 @@ class ProductsController < ApplicationController
     private 
 
     def model_params
-        params.require(:payload).permit(:name,:description,:category_id ,:image_url, :brand)
+        params.require(:payload).permit(:name,:description,:category_id ,:image_url, :brand,:picture, :dimensions, :conversion_factor, :base_unit, :target_unit, :date_valid_from, :expiry_date, :item_group, :weight_in_kg, :tax_class, :revenue_code, :color, :material )
     end
 end
