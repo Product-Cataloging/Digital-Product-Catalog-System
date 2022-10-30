@@ -4,7 +4,8 @@ class User < ApplicationRecord
     validates :username, :email, uniqueness: true
     ADMIN = 'Admin'.freeze
     OPERATOR = 'Operator'.freeze
-    USER_TYPES = [ADMIN, OPERATOR].freeze
+    CUSTOMER = 'Customer'.freeze
+    USER_TYPES = [ADMIN, OPERATOR, CUSTOMER].freeze
     validates :user_type , inclusion: {:in => USER_TYPES}
 
 end
