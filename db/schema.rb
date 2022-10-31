@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_30_105656) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_30_193530) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -103,6 +103,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_30_105656) do
     t.string "status", null: false
   end
 
+  create_table "supplier_products", force: :cascade do |t|
+    t.bigint "supplier_id", null: false
+    t.bigint "product_id", null: false
+    t.string "remark", null: false
+    t.integer "supplier_purchase_price", null: false
+    t.bigint "currency_id", null: false
+    t.string "supplier_margin", null: false
+    t.string "supplier_notes", null: false
+    t.string "quantity_unit", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["currency_id"], name: "index_supplier_products_on_currency_id"
+    t.index ["product_id"], name: "index_supplier_products_on_product_id"
+    t.index ["supplier_id"], name: "index_supplier_products_on_supplier_id"
+  end
+
   create_table "suppliers", force: :cascade do |t|
     t.string "company_name", null: false
     t.datetime "created_at", null: false
@@ -128,4 +144,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_30_105656) do
   add_foreign_key "product_items", "products"
   add_foreign_key "product_items", "suppliers"
   add_foreign_key "products", "categories"
+  add_foreign_key "supplier_products", "currencies"
+  add_foreign_key "supplier_products", "products"
+  add_foreign_key "supplier_products", "suppliers"
 end
