@@ -3,5 +3,5 @@ class Order < ApplicationRecord
 
   delegate(:username, to: :user, prefix: true)
 
-  validates :order_status, :price, :quantity, presence:true
+  validates :order_status, :price, :quantity, presence: true
 end
